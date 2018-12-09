@@ -3,12 +3,12 @@ const webpack = require('webpack')
 const _ = require('lodash')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
+const withCSS = require('@zeit/next-css')
 const TerserPlugin = require('terser-webpack-plugin')
 
 const ANALYZE = process.env.ANALYZE === 'true'
 
 const nextConfig = {
-
   analyzeServer: ANALYZE,
   analyzeBrowser: ANALYZE,
   bundleAnalyzerConfig: {
@@ -24,7 +24,7 @@ const nextConfig = {
     },
   },
 
-  webpack: (config, { dev }) => ({
+  webpack: (config, { dev, isStorybook }) => ({
     ...config,
 
     // Configure production source maps manually since
@@ -45,18 +45,37 @@ const nextConfig = {
     devtool: dev ? config.devtool : 'source-map',
 
     plugins: [
-        ...config.plugins,
+      ...config.plugins,
 
-        new webpack.DefinePlugin({
-            DEBUG: JSON.stringify(dev),
-        }),
+      new webpack.DefinePlugin({
+        DEBUG: JSON.stringify(dev),
+      }),
 
+      // lodash-webpack-plugin breaks Storybook.
+      !isStorybook &&
         new LodashModuleReplacementPlugin({
-            shorthands: true,
-            collections: true,
+          shorthands: true,
+          collections: true,
         }),
     ].filter(Boolean),
   }),
 }
 
-module.exports = withBundleAnalyzer(nextConfig)
+module.exports = withBundleAnalyzer(nextCssStorybookCompat(withCSS(nextConfig)))
+
+function nextCssStorybookCompat(innerConfig = {}) {
+  return {
+    ...innerConfig,
+    webpack: (config, options) =>
+      innerConfig.webpack(
+        _.merge(
+          {
+            // `withCSS` expects this structure to exist, but it doesn’t in Storybook.
+            optimization: { splitChunks: { cacheGroups: {} } },
+          },
+          config,
+        ),
+        options,
+      ),
+  }
+}
