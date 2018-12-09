@@ -6,6 +6,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "storybook": "start-storybook -p 9009 --ci",
     "analyze": "ANALYZE=true next build"
   },
   "repository": {
@@ -30,6 +31,7 @@
     "react-jss": "^8.6.1"
   },
   "devDependencies": {
+    "@storybook/react": "^4.0.12",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "babel-eslint": "^10.0.1",
     "babel-plugin-lodash": "^3.3.4",
