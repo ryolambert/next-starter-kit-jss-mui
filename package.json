@@ -1,0 +1,27 @@
+{
+  "name": "next-starter-kit-jss-mui",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code2gether/next-starter-kit-jss-mui.git"
+  },
+  "keywords": [],
+  "author": "Ahmed Abdulrahman <a.kasapbashi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/code2gether/next-starter-kit-jss-mui/issues"
+  },
+  "homepage": "https://github.com/code2gether/next-starter-kit-jss-mui#readme",
+  "dependencies": {
+    "next": "^7.0.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  }
+}
