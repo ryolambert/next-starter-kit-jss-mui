@@ -28,7 +28,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-jss": "^8.6.1"
+    "react-jss": "^8.6.1",
+    "sanitize.css": "^8.0.0"
   },
   "devDependencies": {
     "@storybook/addon-knobs": "^4.0.12",
