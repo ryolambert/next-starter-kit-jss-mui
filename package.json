@@ -4,8 +4,9 @@
   "description": "",
   "scripts": {
     "dev": "next",
-    "build": "next build",
     "start": "next start",
+    "build": "next build",
+    "build-storybook": "build-storybook -o .nextjs-starter-styleguide && cp -r static/* .nextjs-starter-styleguide/_static",
     "storybook": "start-storybook -p 9009 --ci",
     "analyze": "ANALYZE=true next build"
   },
