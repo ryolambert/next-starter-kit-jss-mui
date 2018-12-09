@@ -27,9 +27,15 @@ module.exports = {
   }),
   overrides: [
     {
-      files: ['.*.js', '*.config.js'],
+      files: ['.*.js', '*.config.js', '.storybook/*.js'],
       env: { node: true },
-    }
+    },
+    {
+      files: ['stories.js'],
+      globals: {
+        module: false,
+      },
+    },
   ],
   settings: {
     'import/resolver': {
