@@ -31,6 +31,9 @@
     "react-jss": "^8.6.1"
   },
   "devDependencies": {
+    "@storybook/addon-knobs": "^4.0.12",
+    "@storybook/addon-options": "^4.0.12",
+    "@storybook/addons": "^4.0.12",
     "@storybook/react": "^4.0.12",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-css": "^1.0.1",
