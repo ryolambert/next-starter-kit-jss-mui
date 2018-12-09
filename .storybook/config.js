@@ -1,3 +1,4 @@
+import '../css/global.css'
 import { addDecorator, configure } from '@storybook/react'
 import { withOptions } from '@storybook/addon-options'
 import { withKnobs } from '@storybook/addon-knobs'
