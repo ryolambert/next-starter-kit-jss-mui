@@ -1,0 +1,24 @@
+{
+  "env": {
+    "development": {
+      "presets": ["next/babel"],
+      "plugins": ["lodash"]
+    },
+    "production": {
+      "presets": ["next/babel"],
+      "plugins": ["lodash"]
+    },
+    "test": {
+      "presets": [
+        [
+          "next/babel",
+          {
+            "preset-env": {
+              "modules": "commonjs"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
